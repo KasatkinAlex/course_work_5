@@ -42,7 +42,7 @@ class DBManager:
         with self.conn.cursor() as cur:
             cur.execute(
                 """
-                SELECT employs.employ_name, AVG(salary) as salary_avg
+                SELECT employs.employ_name, round(AVG(salary)) as salary_avg
                 FROM vacancy
                 INNER JOIN employs USING (employ_id)
                 WHERE salary > 0
